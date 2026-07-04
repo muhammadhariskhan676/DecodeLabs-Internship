@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Task Manager API - Test Client</title>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: Segoe UI, Arial, sans-serif;
+    background: #f4f6f8;
+    margin: 0;
+    padding: 30px;
+    color: #222;
+  }
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  }
+  h1 {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 5px;
+  }
+  h1 i { color: #4f46e5; margin-right: 8px; }
+  p.subtitle {
+    text-align: center;
+    color: #777;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 13px;
+  }
+  .add-form {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  .add-form input {
+    flex: 1;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  .add-form button {
+    background: #4f46e5;
+    color: #fff;
+    border: none;
+    padding: 0 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  .add-form button:hover { background: #4338ca; }
+
+  ul#taskList { list-style: none; padding: 0; margin: 0; }
+  ul#taskList li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    margin-bottom: 8px;
+  }
+  .task-left { display: flex; align-items: center; gap: 10px; }
+  .task-left i.fa-circle-check { color: #16a34a; }
+  .task-left i.fa-circle { color: #9ca3af; }
+  .completed { text-decoration: line-through; color: #999; }
+
+  .actions button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 15px;
+    margin-left: 10px;
+  }
+  .actions .fa-circle-check, .actions .fa-circle { color: #16a34a; }
+  .actions .fa-trash { color: #dc2626; }
+
+  #status {
+    text-align: center;
+    font-size: 13px;
+    margin-top: 15px;
+    color: #777;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1><i class="fa-solid fa-list-check"></i>Task Manager API</h1>
+  <p class="subtitle">DecodeLabs Project 2 - Backend API Test Client</p>
+
+  <form class="add-form" id="addForm">
+    <input type="text" id="titleInput" placeholder="Add a new task..." required />
+    <button type="submit"><i class="fa-solid fa-plus"></i>Add Task</button>
+  </form>
+
+  <ul id="taskList"></ul>
+
+  <p id="status"></p>
+</div>
+
+<script>
+  const API_URL = "/api/tasks";
+  const taskList = document.getElementById("taskList");
+  const addForm = document.getElementById("addForm");
+  const titleInput = document.getElementById("titleInput");
+  const status = document.getElementById("status");
+
+  // load all tasks from the API and show them on screen
+  async function loadTasks() {
+    status.textContent = "Loading tasks...";
+    try {
+      const res = await fetch(API_URL);
+      const result = await res.json();
+      renderTasks(result.data);
+      status.textContent = `${result.count} task(s) loaded`;
+    } catch (err) {
+      status.textContent = "Could not reach the server";
+      console.error(err);
+    }
+  }
+
+  function renderTasks(tasks) {
+    taskList.innerHTML = "";
+    tasks.forEach((task) => {
+      const li = document.createElement("li");
+
+      li.innerHTML = `
+        <div class="task-left">
+          <i class="fa-solid ${task.completed ? "fa-circle-check" : "fa-circle"}"></i>
+          <span class="${task.completed ? "completed" : ""}">${task.title}</span>
+        </div>
+        <div class="actions">
+          <button onclick="toggleComplete(${task.id}, ${!task.completed})" title="Toggle complete" style="color: ${task.completed ? "#9ca3af" : "#16a34a"}">
+            <i class="fa-solid fa-rotate"></i>
+            Complete Task
+          </button>
+          <button onclick="deleteTask(${task.id})" title="Delete task" style="color: #dc2626">
+            <i class="fa-solid fa-trash"></i>
+            Delete Task
+          </button>
+        </div>
+      `;
+      taskList.appendChild(li);
+    });
+  }
+
+  // handle the "add task" form -> sends a POST request
+  addForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const title = titleInput.value.trim();
+    if (!title) return;
+
+    try {
+      const res = await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ title }),
+      });
+
+      if (!res.ok) {
+        const err = await res.json();
+        status.textContent = "Error: " + err.message;
+        return;
+      }
+
+      titleInput.value = "";
+      loadTasks();
+    } catch (err) {
+      status.textContent = "Could not add task";
+      console.error(err);
+    }
+  });
+
+  // PUT request to flip the completed status of a task
+  async function toggleComplete(id, newValue) {
+    await fetch(`${API_URL}/${id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ completed: newValue }),
+    });
+    loadTasks();
+  }
+
+  // DELETE request to remove a task
+  async function deleteTask(id) {
+    await fetch(`${API_URL}/${id}`, { method: "DELETE" });
+    loadTasks();
+  }
+
+  // load tasks as soon as the page opens
+  loadTasks();
+</script>
+
+</body>
+</html>
