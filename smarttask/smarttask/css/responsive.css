@@ -1,0 +1,195 @@
+/* ==========================================================================
+   SmartTask - Responsive Stylesheet
+   Mobile-first. Base styles in style.css/components.css target mobile.
+   Breakpoints below progressively enhance for larger screens.
+   ========================================================================== */
+
+/* ---- Mobile base (320px+) ----
+   Sidebar is hidden off-canvas by default and acts as a drawer.
+   Stat cards and team cards stack to a single column.
+   Dashboard grid stacks vertically.
+*/
+
+.sidebar {
+  transform: translateX(-100%);
+}
+
+.sidebar.is-open {
+  transform: translateX(0);
+}
+
+.main-content {
+  margin-left: 0;
+}
+
+.sidebar-toggle--desktop {
+  display: none;
+}
+
+.stats-grid {
+  grid-template-columns: 1fr;
+}
+
+.dashboard-grid {
+  grid-template-columns: 1fr;
+}
+
+.team-grid {
+  grid-template-columns: 1fr;
+}
+
+.form-row {
+  grid-template-columns: 1fr;
+}
+
+.search-bar {
+  display: none;
+}
+
+.user-menu__info {
+  display: none;
+}
+
+.page-body {
+  padding: var(--space-2);
+}
+
+.task-row {
+  flex-wrap: wrap;
+}
+
+.task-row__side {
+  margin-left: 28px;
+  width: 100%;
+  justify-content: flex-start;
+  margin-top: 6px;
+}
+
+.list-toolbar__search {
+  max-width: none;
+  width: 100%;
+}
+
+.detail-row {
+  flex-direction: column;
+  gap: 4px;
+}
+
+.detail-row__label {
+  width: auto;
+}
+
+/* ---- Small tablets / large phones (480px+) ---- */
+@media (min-width: 480px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ---- Tablet (768px+) ---- */
+@media (min-width: 768px) {
+  .page-body {
+    padding: var(--space-3);
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .form-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .search-bar {
+    display: flex;
+  }
+
+  .task-row {
+    flex-wrap: nowrap;
+  }
+
+  .task-row__side {
+    margin-left: 0;
+    width: auto;
+    margin-top: 0;
+  }
+
+  .detail-row {
+    flex-direction: row;
+    gap: var(--space-2);
+  }
+
+  .detail-row__label {
+    width: 120px;
+  }
+}
+
+/* ---- Laptop (1024px+) ---- */
+@media (min-width: 1024px) {
+  /* Sidebar becomes a permanent fixed column instead of a drawer */
+  .sidebar {
+    transform: translateX(0);
+  }
+
+  .main-content {
+    margin-left: var(--sidebar-width);
+  }
+
+  .app-shell.sidebar-collapsed .main-content {
+    margin-left: var(--sidebar-collapsed-width);
+  }
+
+  .sidebar-toggle--mobile {
+    display: none;
+  }
+
+  .sidebar-toggle--desktop {
+    display: flex;
+  }
+
+  .drawer-overlay {
+    display: none;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1.6fr 1fr;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .user-menu__info {
+    display: block;
+  }
+}
+
+/* ---- Desktop (1440px+) ---- */
+@media (min-width: 1440px) {
+  .page-body {
+    padding: var(--space-4);
+    margin: 0 auto;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ---- Print adjustments (kept minimal, not a core requirement) ---- */
+@media print {
+  .sidebar,
+  .topbar,
+  .modal-overlay,
+  .drawer-overlay {
+    display: none !important;
+  }
+
+  .main-content {
+    margin-left: 0 !important;
+  }
+}

@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tasks - SmartTask</title>
+  <meta name="description" content="Browse, filter and manage all your tasks in SmartTask." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/responsive.css" />
+</head>
+<body data-page="tasks">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="app-shell">
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="sidebar" id="sidebar" aria-label="Primary navigation">
+      <div class="sidebar__brand">
+        <div class="sidebar__brand-mark" aria-hidden="true">ST</div>
+        <span class="sidebar__brand-text">SmartTask</span>
+        <button class="modal__close" data-drawer-close aria-label="Close menu" style="margin-left:auto; color:#cbd5e1;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <nav class="sidebar__nav">
+        <p class="sidebar__section-label">Workspace</p>
+        <a href="../index.html" class="nav-link" data-page-link="dashboard">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
+          <span class="nav-link__label">Dashboard</span>
+        </a>
+        <a href="tasks.html" class="nav-link" data-page-link="tasks">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+          <span class="nav-link__label">Tasks</span>
+          <span class="nav-link__badge">12</span>
+        </a>
+        <a href="team.html" class="nav-link" data-page-link="team">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          <span class="nav-link__label">Team</span>
+        </a>
+        <a href="#" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+          <span class="nav-link__label">Projects</span>
+        </a>
+        <a href="#" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          <span class="nav-link__label">Calendar</span>
+        </a>
+        <a href="#" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          <span class="nav-link__label">Messages</span>
+        </a>
+
+        <p class="sidebar__section-label">Account</p>
+        <a href="settings.html" class="nav-link" data-page-link="settings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          <span class="nav-link__label">Settings</span>
+        </a>
+        <a href="#" class="nav-link" data-logout>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+          <span class="nav-link__label">Sign Out</span>
+        </a>
+      </nav>
+
+      <div class="sidebar__footer">
+        <button class="sidebar-toggle sidebar-toggle--desktop" data-sidebar-collapse aria-label="Collapse sidebar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="11 17 6 12 11 7"></polyline><polyline points="18 17 13 12 18 7"></polyline></svg>
+        </button>
+      </div>
+    </aside>
+
+    <div class="drawer-overlay" data-drawer-overlay></div>
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <div class="main-content">
+
+      <!-- Topbar -->
+      <header class="topbar">
+        <div class="topbar__left">
+          <button class="sidebar-toggle sidebar-toggle--mobile" data-drawer-open aria-label="Open menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </button>
+          <label class="search-bar" for="globalSearch">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="search" id="globalSearch" placeholder="Search tasks, projects, people..." />
+          </label>
+        </div>
+
+        <div class="topbar__right">
+          <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode">
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          </button>
+
+          <div class="user-menu">
+            <button class="icon-btn" data-dropdown-trigger="notifPanel" aria-label="View notifications">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+              <span class="icon-btn__dot"></span>
+            </button>
+            <div class="dropdown-panel notif-panel" id="notifPanel">
+              <div class="notif-panel__header">
+                <h4>Notifications</h4>
+                <span class="text-xs text-faint">4 new</span>
+              </div>
+              <div class="notif-list">
+                <div class="notif-item">
+                  <div class="notif-item__icon notif-item__icon--task">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                  </div>
+                  <div>
+                    <p class="notif-item__text"><strong>Ayesha Raza</strong> assigned you a task: "Fix checkout API timeout"</p>
+                    <p class="notif-item__time">12 minutes ago</p>
+                  </div>
+                </div>
+                <div class="notif-item">
+                  <div class="notif-item__icon notif-item__icon--comment">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                  </div>
+                  <div>
+                    <p class="notif-item__text"><strong>Hamza Tariq</strong> commented on "Database schema redesign"</p>
+                    <p class="notif-item__time">48 minutes ago</p>
+                  </div>
+                </div>
+                <div class="notif-item">
+                  <div class="notif-item__icon notif-item__icon--alert">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                  </div>
+                  <div>
+                    <p class="notif-item__text">Task "Payment gateway integration" is due tomorrow</p>
+                    <p class="notif-item__time">2 hours ago</p>
+                  </div>
+                </div>
+              </div>
+              <div class="notif-panel__footer">
+                <a href="#">View all notifications</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="user-menu">
+            <button class="user-menu__trigger" data-dropdown-trigger="userPanel" aria-label="Open profile menu">
+              <img class="avatar" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=128&h=128&fit=crop&crop=faces" alt="Muhammad Haris Khan" />
+              <div class="user-menu__info">
+                <p class="user-menu__name">Haris Khan</p>
+                <p class="user-menu__role">Frontend Developer</p>
+              </div>
+              <svg class="user-menu__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="dropdown-panel" id="userPanel">
+              <div class="dropdown-panel__header">
+                <img class="avatar" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=128&h=128&fit=crop&crop=faces" alt="Muhammad Haris Khan" />
+                <div>
+                  <p class="user-menu__name">Haris Khan</p>
+                  <p class="text-xs text-faint">haris.khan@smarttask.io</p>
+                </div>
+              </div>
+              <a href="settings.html" class="dropdown-panel__item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                My Profile
+              </a>
+              <a href="settings.html" class="dropdown-panel__item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                Settings
+              </a>
+              <div class="dropdown-panel__divider"></div>
+              <a href="#" class="dropdown-panel__item" data-logout>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                Sign Out
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Page content -->
+      <main class="page-body" id="main-content">
+        <div class="page-header">
+          <div class="page-header__title">
+            <h1>Tasks</h1>
+            <p class="text-muted">12 tasks across 4 active projects</p>
+          </div>
+          <button class="btn btn-primary" id="newTaskBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            New Task
+          </button>
+        </div>
+
+        <div class="card">
+          <div class="card__body" style="padding-bottom: 0;">
+            <div class="list-toolbar">
+              <label class="search-bar list-toolbar__search" for="taskSearch">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="search" id="taskSearch" placeholder="Search tasks by name..." />
+              </label>
+              <div class="flex items-center gap-2">
+                <span class="text-xs text-faint" id="taskResultCount">12 tasks</span>
+              </div>
+            </div>
+
+            <div class="filter-bar" role="tablist" aria-label="Filter tasks by status">
+              <button class="filter-pill is-active" data-filter="all" role="tab" aria-selected="true">All <span class="filter-pill__count">12</span></button>
+              <button class="filter-pill" data-filter="todo" role="tab" aria-selected="false">To Do <span class="filter-pill__count">4</span></button>
+              <button class="filter-pill" data-filter="progress" role="tab" aria-selected="false">In Progress <span class="filter-pill__count">4</span></button>
+              <button class="filter-pill" data-filter="review" role="tab" aria-selected="false">In Review <span class="filter-pill__count">2</span></button>
+              <button class="filter-pill" data-filter="done" role="tab" aria-selected="false">Done <span class="filter-pill__count">2</span></button>
+            </div>
+          </div>
+
+          <div id="taskListContainer">
+
+            <div class="task-row" data-status="todo" data-priority="high" data-title="fix checkout api timeout on high traffic">
+              <input type="checkbox" class="task-row__checkbox" aria-label="Mark complete" />
+              <div class="task-row__main" data-open-task>
+                <p class="task-row__title">Fix checkout API timeout on high traffic</p>
+                <div class="task-row__meta">
+                  <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>Due Jun 22</span>
+                  <span>Checkout Service</span>
+                </div>
+              </div>
+              <div class="task-row__side">
+                <span class="badge badge--todo">To Do</span>
+                <span class="badge badge--high"><span class="badge-dot"></span>High</span>
+                <img class="avatar avatar-sm" src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=64&h=64&fit=crop&crop=faces" alt="Ayesha Raza" />
+              </div>
+            </div>
+
+            <div class="task-row" data-status="progress" data-priority="medium" data-title="database schema redesign for orders table">
+              <input type="checkbox" class="task-row__checkbox" aria-label="Mark complete" />
+              <div class="task-row__main" data-open-task>
+                <p class="task-row__title">Database schema redesign for orders table</p>
+                <div class="task-row__meta">
+                  <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>Due Jun 24</span>
+                  <span>Backend</span>
+                </div>
+              </div>
+              <div class="task-row__side">
+                <span class="badge badge--progress">In Progress</span>
+                <span class="badge badge--medium"><span class="badge-dot"></span>Medium</span>
+                <img class="avatar avatar-sm" src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=64&h=64&fit=crop&crop=faces" alt="Hamza Tariq" />
+              </div>
+            </div>
+
+            <div class="task-row" data-status="todo" data-priority="low" data-title="write unit tests for authentication module">
+              <input type="checkbox" class="task-row__checkbox" aria-label="Mark complete" />
+              <div class="task-row__main" data-open-task>
+                <p class="task-row__title">Write unit tests for authentication module</p>
+                <div class="task-row__meta">
+                  <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>Due Jun 25</span>
+                  <span>QA</span>
+                </div>
+              </div>
+              <div class="task-row__side">
+                <span class="badge badge--todo">To Do</span>
+                <span class="badge badge--low"><span class="badge-dot"></span>Low</span>
+                <img class="avatar avatar-sm" src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=64&h=64&fit=crop&crop=faces" alt="Sara Iqbal" />
+              </div>
+            </div>
+
+            <div class="task-row" data-status="done" data-priority="medium" data-title="landing page revamp for pricing section">
+              <input type="checkbox" class="task-row__checkbox" checked aria-label="Mark complete" />
+              <div class="task-row__main" data-open-task>
+                <p class="task-row__title">Landing page revamp for pricing section</p>
+                <div class="task-row__meta">
+                  <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>Completed Jun 19</span>
+                  <span>Marketing Site</span>
+                </div>
+              </div>
+              <div class="task-row__side">
+                <span class="badge badge--done">Done</span>
+                <span class="badge badge--medium"><span class="badge-dot"></span>Medium</span>
+                <img class="avatar avatar-sm" src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=64&h=64&fit=crop&crop=faces" alt="Sara Iqbal" />
+              </div>
+            </div>
+
+            <div class="task-row" data-status="progress" data-priority="medium" data-title="set up ci pipeline for staging deployments">
+              <input type="checkbox" class="task-row__checkbox" aria-label="Mark complete" />
+              <div class="task-row__main" data-open-task>
+                <p class="task-row__title">Set up CI pipeline for staging deployments</p>
+                <div class="task-row__meta">
+                  <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>Due Jun 27</span>
+                  <span>DevOps</span>
+                </div>
+              </div>
+              <div class="task-row__side">
+                <span class="badge badge--progress">In Progress</span>
+                <span class="badge badge--medium"><span class="badge-dot"></span>Medium</span>
+                <img class="avatar avatar-sm" src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=64&h=64&fit=crop&crop=faces" alt="Hamza Tariq" />
+              </div>
+            </div>
+
+            <div class="task-row" data-status="review" data-priority="high" data-title="payment gateway integration with stripe">
+              <input type="checkbox" class="task-row__checkbox" aria-label="Mark complete" />
+              <div class="task-row__main" data-open-task>
+                <p class="task-row__title">Payment gateway integration with Stripe</p>
+                <div class="task-row__meta">
+                  <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>Due Jun 21</span>
+                  <span>Checkout Service</span>
+                </div>
+              </div>
+              <div class="task-row__side">
+                <span class="badge badge--review">In Review</span>
+                <span class="badge badge--high"><span class="badge-dot"></span>High</span>
+                <img class="avatar avatar-sm" src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=64&h=64&fit=crop&crop=faces" alt="Ayesha Raza" />
+              </div>
+            </div>
+
+            <div class="task-row" data-status="todo" data-priority="low" data-title="update api documentation for v2 endpoints">
+              <input type="checkbox" class="task-row__checkbox" aria-label="Mark complete" />
+              <div class="task-row__main" data-open-task>
+                <p class="task-row__title">Update API documentation for v2 endpoints</p>
+                <div class="task-row__meta">
+                  <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>Due Jun 30</span>
+                  <span>Backend</span>
+                </div>
+              </div>
+              <div class="task-row__side">
+                <span class="badge badge--todo">To Do</span>
+                <span class="badge badge--low"><span class="badge-dot"></span>Low</span>
+                <img class="avatar avatar-sm" src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=64&h=64&fit=crop&crop=faces" alt="Hamza Tariq" />
+              </div>
+            </div>
+
+            <div class="task-row" data-status="progress" data-priority="high" data-title="optimize image loading on product pages">
+              <input type="checkbox" class="task-row__checkbox" aria-label="Mark complete" />
+              <div class="task-row__main" data-open-task>
+                <p class="task-row__title">Optimize image loading on product pages</p>
+                <div class="task-row__meta">
+                  <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>Due Jun 23</span>
+                  <span>Marketing Site</span>
+                </div>
+              </div>
+              <div class="task-row__side">
+                <span class="badge badge--progress">In Progress</span>
+                <span class="badge badge--high"><span class="badge-dot"></span>High</span>
+                <img class="avatar avatar-sm" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=64&h=64&fit=crop&crop=faces" alt="Bilal Ahmed" />
+              </div>
+            </div>
+
+            <div class="task-row" data-status="review" data-priority="medium" data-title="accessibility audit for dashboard widgets">
+              <input type="checkbox" class="task-row__checkbox" aria-label="Mark complete" />
+              <div class="task-row__main" data-open-task>
+                <p class="task-row__title">Accessibility audit for dashboard widgets</p>
+                <div class="task-row__meta">
+                  <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>Due Jun 26</span>
+                  <span>Internal Dashboard</span>
+                </div>
+              </div>
+              <div class="task-row__side">
+                <span class="badge badge--review">In Review</span>
+                <span class="badge badge--medium"><span class="badge-dot"></span>Medium</span>
+                <img class="avatar avatar-sm" src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=64&h=64&fit=crop&crop=faces" alt="Sara Iqbal" />
+              </div>
+            </div>
+
+            <div class="task-row" data-status="done" data-priority="low" data-title="set up error tracking with sentry">
+              <input type="checkbox" class="task-row__checkbox" checked aria-label="Mark complete" />
+              <div class="task-row__main" data-open-task>
+                <p class="task-row__title">Set up error tracking with Sentry</p>
+                <div class="task-row__meta">
+                  <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>Completed Jun 17</span>
+                  <span>DevOps</span>
+                </div>
+              </div>
+              <div class="task-row__side">
+                <span class="badge badge--done">Done</span>
+                <span class="badge badge--low"><span class="badge-dot"></span>Low</span>
+                <img class="avatar avatar-sm" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=64&h=64&fit=crop&crop=faces" alt="Bilal Ahmed" />
+              </div>
+            </div>
+
+            <div class="task-row" data-status="todo" data-priority="high" data-title="resolve memory leak in notification service">
+              <input type="checkbox" class="task-row__checkbox" aria-label="Mark complete" />
+              <div class="task-row__main" data-open-task>
+                <p class="task-row__title">Resolve memory leak in notification service</p>
+                <div class="task-row__meta">
+                  <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>Due Jun 21</span>
+                  <span>Backend</span>
+                </div>
+              </div>
+              <div class="task-row__side">
+                <span class="badge badge--todo">To Do</span>
+                <span class="badge badge--high"><span class="badge-dot"></span>High</span>
+                <img class="avatar avatar-sm" src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=64&h=64&fit=crop&crop=faces" alt="Hamza Tariq" />
+              </div>
+            </div>
+
+            <div class="task-row" data-status="progress" data-priority="low" data-title="add dark mode support to mobile app">
+              <input type="checkbox" class="task-row__checkbox" aria-label="Mark complete" />
+              <div class="task-row__main" data-open-task>
+                <p class="task-row__title">Add dark mode support to mobile app</p>
+                <div class="task-row__meta">
+                  <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>Due Jul 2</span>
+                  <span>Customer Mobile App</span>
+                </div>
+              </div>
+              <div class="task-row__side">
+                <span class="badge badge--progress">In Progress</span>
+                <span class="badge badge--low"><span class="badge-dot"></span>Low</span>
+                <img class="avatar avatar-sm" src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=64&h=64&fit=crop&crop=faces" alt="Sara Iqbal" />
+              </div>
+            </div>
+
+          </div>
+
+          <div class="empty-state hidden" id="emptyState">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <p>No tasks match your search or filter.</p>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- ================= TASK DETAILS MODAL ================= -->
+  <div class="modal-overlay" id="taskModalOverlay">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTaskTitle">
+      <div class="modal__header">
+        <div>
+          <h3 id="modalTaskTitle">Fix checkout API timeout on high traffic</h3>
+          <p class="text-xs text-faint" style="margin-top:4px;">Task ID: SMT-1042</p>
+        </div>
+        <button class="modal__close" id="modalCloseBtn" aria-label="Close dialog">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="modal__body">
+        <p class="text-sm" style="margin-bottom: var(--space-3); line-height:1.6;" id="modalTaskDescription">
+          Under heavy load, the checkout API occasionally times out before the payment confirmation step completes, causing duplicate charge attempts. Investigate connection pool limits on the orders service and add retry handling with exponential backoff on the client side.
+        </p>
+
+        <div class="detail-row">
+          <span class="detail-row__label">Status</span>
+          <span class="detail-row__value"><span class="badge badge--todo" id="modalTaskStatus">To Do</span></span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-row__label">Priority</span>
+          <span class="detail-row__value"><span class="badge badge--high" id="modalTaskPriority"><span class="badge-dot"></span>High</span></span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-row__label">Project</span>
+          <span class="detail-row__value" id="modalTaskProject">Checkout Service</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-row__label">Due Date</span>
+          <span class="detail-row__value" id="modalTaskDue">June 22, 2026</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-row__label">Assignee</span>
+          <span class="detail-row__value flex items-center gap-1">
+            <img class="avatar avatar-sm" id="modalTaskAvatar" src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=64&h=64&fit=crop&crop=faces" alt="" />
+            <span id="modalTaskAssignee">Ayesha Raza</span>
+          </span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-row__label">Created</span>
+          <span class="detail-row__value">June 18, 2026 by Ayesha Raza</span>
+        </div>
+      </div>
+      <div class="modal__footer">
+        <button class="btn btn-secondary" id="modalCloseBtnSecondary">Close</button>
+        <button class="btn btn-primary" id="modalEditBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+          Edit Task
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/app.js"></script>
+  <script src="../js/tasks.js"></script>
+</body>
+</html>

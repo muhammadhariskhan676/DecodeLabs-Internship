@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Team - SmartTask</title>
+  <meta name="description" content="View the SmartTask team, their roles and current workload." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/responsive.css" />
+</head>
+<body data-page="team">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="app-shell">
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="sidebar" id="sidebar" aria-label="Primary navigation">
+      <div class="sidebar__brand">
+        <div class="sidebar__brand-mark" aria-hidden="true">ST</div>
+        <span class="sidebar__brand-text">SmartTask</span>
+        <button class="modal__close" data-drawer-close aria-label="Close menu" style="margin-left:auto; color:#cbd5e1;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <nav class="sidebar__nav">
+        <p class="sidebar__section-label">Workspace</p>
+        <a href="../index.html" class="nav-link" data-page-link="dashboard">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
+          <span class="nav-link__label">Dashboard</span>
+        </a>
+        <a href="tasks.html" class="nav-link" data-page-link="tasks">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+          <span class="nav-link__label">Tasks</span>
+          <span class="nav-link__badge">12</span>
+        </a>
+        <a href="team.html" class="nav-link" data-page-link="team">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          <span class="nav-link__label">Team</span>
+        </a>
+        <a href="#" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+          <span class="nav-link__label">Projects</span>
+        </a>
+        <a href="#" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          <span class="nav-link__label">Calendar</span>
+        </a>
+        <a href="#" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          <span class="nav-link__label">Messages</span>
+        </a>
+
+        <p class="sidebar__section-label">Account</p>
+        <a href="settings.html" class="nav-link" data-page-link="settings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          <span class="nav-link__label">Settings</span>
+        </a>
+        <a href="#" class="nav-link" data-logout>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+          <span class="nav-link__label">Sign Out</span>
+        </a>
+      </nav>
+
+      <div class="sidebar__footer">
+        <button class="sidebar-toggle sidebar-toggle--desktop" data-sidebar-collapse aria-label="Collapse sidebar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="11 17 6 12 11 7"></polyline><polyline points="18 17 13 12 18 7"></polyline></svg>
+        </button>
+      </div>
+    </aside>
+
+    <div class="drawer-overlay" data-drawer-overlay></div>
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <div class="main-content">
+
+      <!-- Topbar -->
+      <header class="topbar">
+        <div class="topbar__left">
+          <button class="sidebar-toggle sidebar-toggle--mobile" data-drawer-open aria-label="Open menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </button>
+          <label class="search-bar" for="globalSearch">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="search" id="globalSearch" placeholder="Search tasks, projects, people..." />
+          </label>
+        </div>
+
+        <div class="topbar__right">
+          <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode">
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          </button>
+
+          <div class="user-menu">
+            <button class="icon-btn" data-dropdown-trigger="notifPanel" aria-label="View notifications">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+              <span class="icon-btn__dot"></span>
+            </button>
+            <div class="dropdown-panel notif-panel" id="notifPanel">
+              <div class="notif-panel__header">
+                <h4>Notifications</h4>
+                <span class="text-xs text-faint">4 new</span>
+              </div>
+              <div class="notif-list">
+                <div class="notif-item">
+                  <div class="notif-item__icon notif-item__icon--task">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                  </div>
+                  <div>
+                    <p class="notif-item__text"><strong>Ayesha Raza</strong> assigned you a task: "Fix checkout API timeout"</p>
+                    <p class="notif-item__time">12 minutes ago</p>
+                  </div>
+                </div>
+                <div class="notif-item">
+                  <div class="notif-item__icon notif-item__icon--comment">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                  </div>
+                  <div>
+                    <p class="notif-item__text"><strong>Hamza Tariq</strong> commented on "Database schema redesign"</p>
+                    <p class="notif-item__time">48 minutes ago</p>
+                  </div>
+                </div>
+                <div class="notif-item">
+                  <div class="notif-item__icon notif-item__icon--alert">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                  </div>
+                  <div>
+                    <p class="notif-item__text">Task "Payment gateway integration" is due tomorrow</p>
+                    <p class="notif-item__time">2 hours ago</p>
+                  </div>
+                </div>
+              </div>
+              <div class="notif-panel__footer">
+                <a href="#">View all notifications</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="user-menu">
+            <button class="user-menu__trigger" data-dropdown-trigger="userPanel" aria-label="Open profile menu">
+              <img class="avatar" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=128&h=128&fit=crop&crop=faces" alt="Muhammad Haris Khan" />
+              <div class="user-menu__info">
+                <p class="user-menu__name">Haris Khan</p>
+                <p class="user-menu__role">Frontend Developer</p>
+              </div>
+              <svg class="user-menu__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="dropdown-panel" id="userPanel">
+              <div class="dropdown-panel__header">
+                <img class="avatar" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=128&h=128&fit=crop&crop=faces" alt="Muhammad Haris Khan" />
+                <div>
+                  <p class="user-menu__name">Haris Khan</p>
+                  <p class="text-xs text-faint">haris.khan@smarttask.io</p>
+                </div>
+              </div>
+              <a href="settings.html" class="dropdown-panel__item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                My Profile
+              </a>
+              <a href="settings.html" class="dropdown-panel__item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                Settings
+              </a>
+              <div class="dropdown-panel__divider"></div>
+              <a href="#" class="dropdown-panel__item" data-logout>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                Sign Out
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Page content -->
+      <main class="page-body" id="main-content">
+        <div class="page-header">
+          <div class="page-header__title">
+            <h1>Team</h1>
+            <p class="text-muted">8 members across Engineering, Design and Product</p>
+          </div>
+          <button class="btn btn-primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            Invite Member
+          </button>
+        </div>
+
+        <div class="team-grid">
+
+          <div class="team-card">
+            <img class="team-card__avatar" src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=160&h=160&fit=crop&crop=faces" alt="Ayesha Raza" />
+            <h3 class="team-card__name">Ayesha Raza</h3>
+            <p class="team-card__role">Product Manager</p>
+            <span class="team-card__status">
+              <span class="status-dot status-dot--online"></span>
+              Active now
+            </span>
+            <div class="team-card__stats">
+              <div>
+                <p class="team-card__stat-value">14</p>
+                <p class="team-card__stat-label">Tasks</p>
+              </div>
+              <div>
+                <p class="team-card__stat-value">3</p>
+                <p class="team-card__stat-label">Projects</p>
+              </div>
+            </div>
+            <div class="team-card__actions">
+              <a href="mailto:ayesha.raza@smarttask.io" class="btn btn-secondary btn-sm">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"></path><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6z"></path><path d="M22 6l-10 7L2 6"></path></svg>
+                Email
+              </a>
+              <button class="btn btn-secondary btn-sm">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                Message
+              </button>
+            </div>
+          </div>
+
+          <div class="team-card">
+            <img class="team-card__avatar" src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=160&h=160&fit=crop&crop=faces" alt="Hamza Tariq" />
+            <h3 class="team-card__name">Hamza Tariq</h3>
+            <p class="team-card__role">Backend Developer</p>
+            <span class="team-card__status">
+              <span class="status-dot status-dot--online"></span>
+              Active now
+            </span>
+            <div class="team-card__stats">
+              <div>
+                <p class="team-card__stat-value">11</p>
+                <p class="team-card__stat-label">Tasks</p>
+              </div>
+              <div>
+                <p class="team-card__stat-value">2</p>
+                <p class="team-card__stat-label">Projects</p>
+              </div>
+            </div>
+            <div class="team-card__actions">
+              <a href="mailto:hamza.tariq@smarttask.io" class="btn btn-secondary btn-sm">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6z"></path><path d="M22 6l-10 7L2 6"></path></svg>
+                Email
+              </a>
+              <button class="btn btn-secondary btn-sm">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                Message
+              </button>
+            </div>
+          </div>
+
+          <div class="team-card">
+            <img class="team-card__avatar" src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=160&h=160&fit=crop&crop=faces" alt="Sara Iqbal" />
+            <h3 class="team-card__name">Sara Iqbal</h3>
+            <p class="team-card__role">UI/UX Designer</p>
+            <span class="team-card__status">
+              <span class="status-dot"></span>
+              Offline
+            </span>
+            <div class="team-card__stats">
+              <div>
+                <p class="team-card__stat-value">9</p>
+                <p class="team-card__stat-label">Tasks</p>
+              </div>
+              <div>
+                <p class="team-card__stat-value">4</p>
+                <p class="team-card__stat-label">Projects</p>
+              </div>
+            </div>
+            <div class="team-card__actions">
+              <a href="mailto:sara.iqbal@smarttask.io" class="btn btn-secondary btn-sm">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6z"></path><path d="M22 6l-10 7L2 6"></path></svg>
+                Email
+              </a>
+              <button class="btn btn-secondary btn-sm">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                Message
+              </button>
+            </div>
+          </div>
+
+          <div class="team-card">
+            <img class="team-card__avatar" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=160&h=160&fit=crop&crop=faces" alt="Bilal Ahmed" />
+            <h3 class="team-card__name">Bilal Ahmed</h3>
+            <p class="team-card__role">DevOps Engineer</p>
+            <span class="team-card__status">
+              <span class="status-dot status-dot--away"></span>
+              Away
+            </span>
+            <div class="team-card__stats">
+              <div>
+                <p class="team-card__stat-value">7</p>
+                <p class="team-card__stat-label">Tasks</p>
+              </div>
+              <div>
+                <p class="team-card__stat-value">2</p>
+                <p class="team-card__stat-label">Projects</p>
+              </div>
+            </div>
+            <div class="team-card__actions">
+              <a href="mailto:bilal.ahmed@smarttask.io" class="btn btn-secondary btn-sm">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6z"></path><path d="M22 6l-10 7L2 6"></path></svg>
+                Email
+              </a>
+              <button class="btn btn-secondary btn-sm">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                Message
+              </button>
+            </div>
+          </div>
+
+          <div class="team-card">
+            <img class="team-card__avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=160&h=160&fit=crop&crop=faces" alt="Usman Farooq" />
+            <h3 class="team-card__name">Usman Farooq</h3>
+            <p class="team-card__role">Frontend Developer</p>
+            <span class="team-card__status">
+              <span class="status-dot status-dot--online"></span>
+              Active now
+            </span>
+            <div class="team-card__stats">
+              <div>
+                <p class="team-card__stat-value">13</p>
+                <p class="team-card__stat-label">Tasks</p>
+              </div>
+              <div>
+                <p class="team-card__stat-value">3</p>
+                <p class="team-card__stat-label">Projects</p>
+              </div>
+            </div>
+            <div class="team-card__actions">
+              <a href="mailto:usman.farooq@smarttask.io" class="btn btn-secondary btn-sm">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6z"></path><path d="M22 6l-10 7L2 6"></path></svg>
+                Email
+              </a>
+              <button class="btn btn-secondary btn-sm">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                Message
+              </button>
+            </div>
+          </div>
+
+          <div class="team-card">
+            <img class="team-card__avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=160&h=160&fit=crop&crop=faces" alt="Mahnoor Sheikh" />
+            <h3 class="team-card__name">Mahnoor Sheikh</h3>
+            <p class="team-card__role">QA Engineer</p>
+            <span class="team-card__status">
+              <span class="status-dot status-dot--online"></span>
+              Active now
+            </span>
+            <div class="team-card__stats">
+              <div>
+                <p class="team-card__stat-value">10</p>
+                <p class="team-card__stat-label">Tasks</p>
+              </div>
+              <div>
+                <p class="team-card__stat-value">3</p>
+                <p class="team-card__stat-label">Projects</p>
+              </div>
+            </div>
+            <div class="team-card__actions">
+              <a href="mailto:mahnoor.sheikh@smarttask.io" class="btn btn-secondary btn-sm">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6z"></path><path d="M22 6l-10 7L2 6"></path></svg>
+                Email
+              </a>
+              <button class="btn btn-secondary btn-sm">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                Message
+              </button>
+            </div>
+          </div>
+
+          <div class="team-card">
+            <img class="team-card__avatar" src="https://images.unsplash.com/photo-1545167622-3a6ac756afa4?w=160&h=160&fit=crop&crop=faces" alt="Zainab Malik" />
+            <h3 class="team-card__name">Zainab Malik</h3>
+            <p class="team-card__role">Marketing Lead</p>
+            <span class="team-card__status">
+              <span class="status-dot status-dot--away"></span>
+              Away
+            </span>
+            <div class="team-card__stats">
+              <div>
+                <p class="team-card__stat-value">6</p>
+                <p class="team-card__stat-label">Tasks</p>
+              </div>
+              <div>
+                <p class="team-card__stat-value">1</p>
+                <p class="team-card__stat-label">Projects</p>
+              </div>
+            </div>
+            <div class="team-card__actions">
+              <a href="mailto:zainab.malik@smarttask.io" class="btn btn-secondary btn-sm">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6z"></path><path d="M22 6l-10 7L2 6"></path></svg>
+                Email
+              </a>
+              <button class="btn btn-secondary btn-sm">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                Message
+              </button>
+            </div>
+          </div>
+
+          <div class="team-card">
+            <img class="team-card__avatar" src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=160&h=160&fit=crop&crop=faces" alt="Muhammad Haris Khan" />
+            <h3 class="team-card__name">Haris Khan</h3>
+            <p class="team-card__role">Frontend Developer (You)</p>
+            <span class="team-card__status">
+              <span class="status-dot status-dot--online"></span>
+              Active now
+            </span>
+            <div class="team-card__stats">
+              <div>
+                <p class="team-card__stat-value">8</p>
+                <p class="team-card__stat-label">Tasks</p>
+              </div>
+              <div>
+                <p class="team-card__stat-value">2</p>
+                <p class="team-card__stat-label">Projects</p>
+              </div>
+            </div>
+            <div class="team-card__actions">
+              <a href="settings.html" class="btn btn-secondary btn-sm" style="flex:1 1 100%;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                Edit Your Profile
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>
