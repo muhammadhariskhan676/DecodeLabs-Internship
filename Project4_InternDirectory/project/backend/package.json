@@ -1,0 +1,14 @@
+{
+  "name": "decodelabs-project4-backend",
+  "version": "1.0.0",
+  "description": "Backend server for Project 4 - Frontend & Backend Integration (Intern Directory App)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  }
+}

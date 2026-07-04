@@ -1,0 +1,359 @@
+/* ---------- Base setup ---------- */
+:root {
+  --color-bg: #f6f7f5;
+  --color-surface: #ffffff;
+  --color-border: #dfe3df;
+  --color-text: #1f2b23;
+  --color-text-muted: #5c6b62;
+  --color-primary: #2f6f4f;
+  --color-primary-dark: #234f38;
+  --color-primary-light: #e6f0ea;
+  --color-error: #b3412f;
+  --color-error-bg: #fbe9e6;
+  --color-active: #2f6f4f;
+  --color-leave: #a9762c;
+  --radius: 10px;
+  --shadow: 0 1px 2px rgba(20, 30, 25, 0.06), 0 4px 12px rgba(20, 30, 25, 0.05);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* ---------- Top bar ---------- */
+.topbar {
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.topbar-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--color-primary-dark);
+}
+
+.brand-icon {
+  width: 22px;
+  height: 22px;
+  color: var(--color-primary);
+}
+
+.topbar-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #c7c7c7;
+  display: inline-block;
+}
+
+.status-dot.online {
+  background-color: #2f6f4f;
+}
+
+.status-dot.offline {
+  background-color: var(--color-error);
+}
+
+/* ---------- Layout ---------- */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 20px 60px;
+}
+
+.page-heading h1 {
+  font-size: 26px;
+  margin: 0 0 6px;
+}
+
+.page-heading p {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 14px;
+}
+
+.panel {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
+  margin-top: 24px;
+}
+
+.panel h2 {
+  margin: 0 0 16px;
+  font-size: 17px;
+}
+
+/* ---------- Form ---------- */
+.intern-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 16px;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-row label {
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.form-row input {
+  padding: 9px 11px;
+  border: 1px solid var(--color-border);
+  border-radius: 7px;
+  font-size: 14px;
+  outline: none;
+  background-color: #fbfcfb;
+}
+
+.form-row input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-light);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: none;
+  border-radius: 7px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 9px 16px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, opacity 0.15s ease;
+}
+
+.btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #fff;
+  grid-column: span 2;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary-dark);
+}
+
+.btn-secondary:hover {
+  background-color: #d9ead9;
+}
+
+.form-message {
+  margin: 14px 0 0;
+  font-size: 13px;
+  min-height: 18px;
+}
+
+.form-message.success {
+  color: var(--color-primary-dark);
+}
+
+.form-message.error {
+  color: var(--color-error);
+}
+
+/* ---------- List panel ---------- */
+.list-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.list-heading h2 {
+  margin: 0;
+}
+
+.intern-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 14px;
+}
+
+.intern-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 16px;
+  background-color: #fbfcfb;
+  position: relative;
+}
+
+.intern-card h3 {
+  margin: 0 0 4px;
+  font-size: 15px;
+}
+
+.intern-card .role {
+  color: var(--color-text-muted);
+  font-size: 13px;
+  margin: 0 0 10px;
+}
+
+.intern-card .meta-row {
+  font-size: 13px;
+  color: var(--color-text);
+  margin: 4px 0;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.intern-card .meta-row svg {
+  width: 14px;
+  height: 14px;
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 12px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  margin-top: 10px;
+}
+
+.badge.active {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary-dark);
+}
+
+.badge.leave {
+  background-color: #f5ead6;
+  color: var(--color-leave);
+}
+
+.card-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.icon-btn {
+  border: 1px solid var(--color-border);
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 5px 8px;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  display: inline-flex;
+  align-items: center;
+}
+
+.icon-btn svg {
+  width: 15px;
+  height: 15px;
+}
+
+.icon-btn:hover {
+  border-color: var(--color-error);
+  color: var(--color-error);
+}
+
+/* ---------- States: loading / error / empty ---------- */
+.state-box {
+  text-align: center;
+  padding: 32px 12px;
+  color: var(--color-text-muted);
+  font-size: 14px;
+}
+
+.state-box.hidden {
+  display: none;
+}
+
+.error-box {
+  color: var(--color-error);
+}
+
+.error-box svg {
+  width: 28px;
+  height: 28px;
+  margin-bottom: 8px;
+}
+
+.spinner {
+  width: 26px;
+  height: 26px;
+  border: 3px solid var(--color-border);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  margin: 0 auto 10px;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  text-align: center;
+  padding: 20px;
+  color: var(--color-text-muted);
+  font-size: 12px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 620px) {
+  .intern-form {
+    grid-template-columns: 1fr;
+  }
+
+  .btn-primary {
+    grid-column: span 1;
+  }
+}
